@@ -13,6 +13,7 @@ class CreateUsersModelsTable extends Migration
      */
     public function up()
     {
+      if (!Schema::hasTable('users')) {
         Schema::create('users', function (Blueprint $table) {
             $table->integer('id');
             $table->primary('id');
@@ -25,6 +26,7 @@ class CreateUsersModelsTable extends Migration
             $table->datetime('updated_at');
             $table->datetime('created_at');
         });
+      }
     }
 
     /**
