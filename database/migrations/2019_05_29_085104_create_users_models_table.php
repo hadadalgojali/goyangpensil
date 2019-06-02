@@ -25,6 +25,7 @@ class CreateUsersModelsTable extends Migration
             $table->text('address');
             $table->datetime('updated_at');
             $table->datetime('created_at');
+            $table->engine = 'InnoDB';
         });
       }
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAuthModelsTable extends Migration
+class CreateGroupBlogImageModelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateAuthModelsTable extends Migration
      */
     public function up()
     {
-      if (!Schema::hasTable('auth')) {
-        Schema::create('auth', function (Blueprint $table) {
+      if(!Schema::hasTable('group_blog_image')){
+        Schema::create('group_blog_image', function (Blueprint $table) {
             $table->integer('id');
-            $table->foreign('id')->references('id')->on('users')
+            $table->primary('id');
+            $table->integer('id_image');
+            $table->foreign('id_image')->references('id')->on('images')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->string('username', 50);
-            $table->string('password', 255);
-            $table->string('ip', 100);
-            $table->integer('login_stat', 1);
+            $table->integer('id_blog');
+            $table->foreign('id_blog')->references('id')->on('blogs')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->datetime('created_at');
             $table->datetime('updated_at');
             $table->engine = 'InnoDB';
@@ -37,6 +39,6 @@ class CreateAuthModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('auth_models');
+        Schema::dropIfExists('group_blog_image_models');
     }
 }
