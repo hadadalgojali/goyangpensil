@@ -10,19 +10,16 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="listings.html">Ads</a></li>
+                <li class="active"><a href="/">Beranda</a></li>
+                <li><a href="listings.html">Product</a></li>
                 <li class="has-children">
-                  <a href="about.html">About</a>
+                  <a href="about.html">Mitra</a>
                   <ul class="dropdown">
-                    <li><a href="#">The Company</a></li>
-                    <li><a href="#">The Leadership</a></li>
-                    <li><a href="#">Philosophy</a></li>
-                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Mengenai Kami</a></li>
+                    <li><a href="/pages/contact">Kontak</a></li>
+                    <li><a href="#">Kerja sama</a></li>
                   </ul>
                 </li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
 
                 <li class="ml-xl-3 login"><a href="login.html"><span class="border-left pl-xl-4"></span>Log In</a></li>
                 <li><a href="register.html">Register</a></li>

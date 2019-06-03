@@ -21,7 +21,21 @@ class MainController extends Controller
         ->leftJoin('blogs', 'blogs.id', '=', 'group_blog_category.id_blog')
         ->select('category.*', DB::raw('COALESCE(blogs.project_count, 0) as count'))
         ->get();
-        return view('pages/dashboard/index', ['category' => $category]);
+
+        $popular  = DB::table('blogs')
+        ->join('setup_blog', 'setup_blog.id_blog', '=', 'blogs.id')
+        ->join('group_blog_category', 'group_blog_category.id_blog', '=', 'blogs.id')
+        ->join('category', 'group_blog_category.id_category', '=', 'category.id')
+        ->select('blogs.id', 'blogs.title', 'blogs.description', 'setup_blog.app', 'setup_blog.path', 'setup_blog.file',
+        DB::raw('group_concat(category.category) as category'))
+        ->groupBy('blogs.id','blogs.title')
+        ->get();
+
+
+        return view('pages/dashboard/index', [
+          'category' => $category,
+          'popular'  => $popular,
+        ]);
     }
 
     /**
