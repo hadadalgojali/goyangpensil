@@ -8,5 +8,5 @@ class BlogsModel extends Model
 {
     //
     protected $table = 'blogs';
-    protected $fillable = ['id', 'id_user', 'title'];
+    protected $fillable = ['id', 'id_user', 'title', 'project_count'];
 }

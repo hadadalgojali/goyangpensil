@@ -8,5 +8,5 @@ class CategoryModel extends Model
 {
     //
     protected $table    = 'category';
-    protected $fillable = ['id', 'category'];
+    protected $fillable = ['id', 'category', 'icon'];
 }

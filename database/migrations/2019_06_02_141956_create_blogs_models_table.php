@@ -19,6 +19,7 @@ class CreateBlogsModelsTable extends Migration
             $table->primary('id');
             $table->integer('id_user');
             $table->string('title', 100);
+            $table->integer('project_count');
             $table->datetime('created_at');
             $table->datetime('updated_at');
             $table->foreign('id_user')->references('id')->on('users')
