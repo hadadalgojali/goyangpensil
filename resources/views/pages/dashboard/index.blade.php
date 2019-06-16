@@ -1,4 +1,6 @@
 @extends('index', ['title' => 'GP - Beranda'])
+
+@include('layouts/partials/_header')
 <div class="site-blocks-cover overlay" style="background-image: url({{URL::to('/')}}/template/public/images/banner-min.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
   <div class="container">
     <div class="row align-items-center justify-content-center text-center">
