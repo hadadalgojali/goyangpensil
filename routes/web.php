@@ -21,4 +21,10 @@ Route::group(['prefix'  => 'pages'], function(){
       'company' => $xml,
     ]);
   });
+
+
+  Route::get('/product-list/{id}', [
+    'uses'  => 'PortofolioController@product_list'
+  ]);
+
 });

@@ -1,6 +1,6 @@
 @extends('index', ['title' => 'GP - Beranda'])
 
-@include('layouts/partials/_header')
+<div id="content" style="display:none;">
 <div class="site-blocks-cover overlay" style="background-image: url({{URL::to('/')}}/template/public/images/banner-min.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
   <div class="container">
     <div class="row align-items-center justify-content-center text-center">
@@ -47,7 +47,7 @@
       <div class="row align-items-stretch no-gutters">
           @foreach ($category as $item)
             <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-              <a href="#" class="popular-category h-100">
+              <a href="/pages/product-list/{{ $item->id }}" class="popular-category h-100">
                 <!-- <span class="{{ $item->icon }} fa-2x"></span> -->
                 <img src="{{URL::to('/')}}/assets/icon/{{ $item->icon }}" width="42" height="42">
                 <span class="caption mb-2 d-block" style="padding-top:10px;">{{ $item->category }}</span>
@@ -108,7 +108,7 @@
                 <!-- $popular_category -->
                 <?php $tag = explode(",",$item->category); ?>
                 @foreach ($tag as $tag)
-                  <a class="px-3 mb-3 category" href="#">{{ $tag }}</a>
+                  <a class="px-3 mb-3 category" href="pages/product-list/{{ $tag }}">{{ $tag }}</a>
                 @endforeach
                 <h2 class="mb-1"><a href="#">{{ $item->title }}</a></h2>
                 <span class="address">{{ $item->description }}</span>
@@ -140,4 +140,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

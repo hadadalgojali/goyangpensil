@@ -9,4 +9,10 @@ class BlogsModel extends Model
     //
     protected $table = 'blogs';
     protected $fillable = ['id', 'id_user', 'title', 'project_count'];
+
+    // RELASI dari table BLOGS dengan referensi table GROUP_BLOG_IMAGE
+    // belongsTo = One To Many
+  	function group_blog(){
+    	return $this->hasMany('App\GroupBlogImageModel','id_blog');
+  	}
 }

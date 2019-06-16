@@ -29,6 +29,8 @@ class MainController extends Controller
         ->select('blogs.id', 'blogs.title', 'blogs.description', 'setup_blog.app', 'setup_blog.path', 'setup_blog.file',
         DB::raw('group_concat(category.category) as category'))
         ->groupBy('blogs.id','blogs.title')
+        ->orderBy('blogs.project_count','desc')
+        ->limit(3)
         ->get();
 
 

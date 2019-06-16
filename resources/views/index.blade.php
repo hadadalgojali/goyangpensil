@@ -25,12 +25,14 @@
 
   </head>
   <body>
+
   <div class="preloader-wrapper">
       <div class="preloader">
           <img src="{{URL::to('/')}}/assets/images/preload.gif" alt="NILA">
       </div>
   </div>
   <div class="site-wrap">
+    @include('layouts/partials/_header')
     @yield('content')
     <footer class="site-footer">
       <div class="container">
@@ -107,6 +109,7 @@
     $(window).load(function() {
         $('.preloader-wrapper').fadeOut();
         $('body').removeClass('preloader-site');
+        document.getElementById('content').style.display = '';
     });
   </script>
   </body>
