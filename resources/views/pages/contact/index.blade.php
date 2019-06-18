@@ -1,5 +1,5 @@
 @extends('index', ['title' => 'GP - Kontak'])
-<div id="content" style="display:none;">
+<!-- <div id="content" style="display:none;"> -->
 <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url({{URL::to('/')}}/template/public/images/banner-min.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
   <div class="container">
     <div class="row align-items-center justify-content-center text-center">
@@ -85,4 +85,4 @@
         </div>
       </div>
     </div>
-</div>
+<!-- </div> -->

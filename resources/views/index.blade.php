@@ -109,7 +109,7 @@
     $(window).load(function() {
         $('.preloader-wrapper').fadeOut();
         $('body').removeClass('preloader-site');
-        document.getElementById('content').style.display = '';
+        // document.getElementById('content').style.display = '';
     });
   </script>
   </body>
