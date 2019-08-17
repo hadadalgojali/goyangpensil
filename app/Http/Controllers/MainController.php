@@ -13,8 +13,7 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
         $category = DB::table('category')
         ->leftJoin('group_blog_category', 'group_blog_category.id_category', '=', 'category.id')
@@ -39,6 +38,10 @@ class MainController extends Controller
           'popular'  => $popular,
         ]);
     }
+
+   public function index_() {
+     return view('index');
+   }
 
     /**
      * Show the form for creating a new resource.

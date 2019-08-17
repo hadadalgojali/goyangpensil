@@ -8,7 +8,6 @@
       <div class="site-mobile-menu-body"></div>
     </div>
     <header class="site-navbar container py-0 bg-white" role="banner">
-
       <!-- <div class="container"> -->
         <div class="row align-items-center">
 
