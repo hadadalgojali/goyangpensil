@@ -7,19 +7,15 @@
     width: 100%;
     height: 100%;
     z-index: 9999;
-  }
-
-  #load_screen > #loading{
-    color: #000;
-    width: 120px;
-    height: 24px;
-    margin: 300px auto;
+    background: url('//upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Phi_fenomeni.gif/50px-Phi_fenomeni.gif')
+                50% 50% no-repeat rgb(249,249,249);
   }
 </style>
-<div id="load_screen"><div id="loading"><img src="{{asset('assets/images/preload.gif')}}"></div></div>
+<div id="load_screen"></div>
 @extends('index', ['title' => 'GP - Portofolio'])
 <!-- <div id="content" style="display:none;"> -->
 <!-- <div id="example">disini</div> -->
+
 @section('content')
 <div class="site-blocks-cover inner-page-cover overlay" data-aos="fade" data-stellar-background-ratio="0.5">
   <div class="container">

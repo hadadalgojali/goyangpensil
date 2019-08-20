@@ -61670,22 +61670,22 @@ function (_Component) {
   _createClass(_Bottom, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "row"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-md-9"
+        className: "col-md-9"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "row"
+        className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-md-6"
+        className: "col-md-6"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        "class": "footer-heading mb-4"
+        className: "footer-heading mb-4"
       }, "About"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "-")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-md-3"
+        className: "col-md-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        "class": "footer-heading mb-4"
+        className: "footer-heading mb-4"
       }, "Navigations"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        "class": "list-unstyled"
+        className: "list-unstyled"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
       }, "About Us")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -61695,30 +61695,30 @@ function (_Component) {
       }, "Testimonials")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
       }, "Contact Us")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-md-3"
+        className: "col-md-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        "class": "footer-heading mb-4"
+        className: "footer-heading mb-4"
       }, "Follow Us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
-        "class": "pl-0 pr-3"
+        className: "pl-0 pr-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        "class": "icon-facebook"
+        className: "icon-facebook"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
-        "class": "pl-3 pr-3"
+        className: "pl-3 pr-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        "class": "icon-twitter"
+        className: "icon-twitter"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
-        "class": "pl-3 pr-3"
+        className: "pl-3 pr-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        "class": "icon-instagram"
+        className: "icon-instagram"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#",
-        "class": "pl-3 pr-3"
+        className: "pl-3 pr-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        "class": "icon-linkedin"
-      })))))));
+        className: "icon-linkedin"
+      }))))));
     }
   }]);
 
@@ -61783,13 +61783,13 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "row pt-5 mt-5 text-center"
+        className: "row pt-5 mt-5 text-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "col-md-12"
+        className: "col-md-12"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "border-top"
+        className: "border-top"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Copyright \xA9", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", null, "document.write(new Date().getFullYear());"), " All rights reserved | This template is made with ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "icon-heart",
+        className: "icon-heart",
         "aria-hidden": "true"
       }), " by ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://colorlib.com",

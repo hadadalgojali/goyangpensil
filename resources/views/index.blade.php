@@ -19,8 +19,8 @@
       @yield('content')
       <footer class="site-footer">
         <div class="container">
-          <!-- <div id="_bottom"></div> -->
-          <!-- <div id="_footer"></div> -->
+          <div id="_bottom"></div>
+          <div id="_footer"></div>
         </div>
       </footer>
     </div>
