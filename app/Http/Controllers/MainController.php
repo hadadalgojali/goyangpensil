@@ -40,7 +40,7 @@ class MainController extends Controller
     }
 
    public function index_() {
-     return view('index');
+     return view('index_');
    }
 
     /**

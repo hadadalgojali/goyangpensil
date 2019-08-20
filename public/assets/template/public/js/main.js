@@ -68,6 +68,7 @@ jQuery(document).ready(function($) {
      var $this = $(this);
      e.preventDefault();
 
+     console.log( $('body').hasClass('offcanvas-menu'));
      if ( $('body').hasClass('offcanvas-menu') ) {
        $('body').removeClass('offcanvas-menu');
        $this.removeClass('active');
