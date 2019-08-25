@@ -27,7 +27,7 @@ export default class _Header extends Component {
                     <nav className="site-navigation position-relative text-right" role="navigation">
                       <ul className="site-menu js-clone-nav mr-auto d-none d-lg-block">
                         <li><a href="/">Beranda</a></li>
-                        <li><a href="/pages/product">Product </a></li>
+                        <li><a href="/pages/product">Product</a></li>
                         <li className="has-children">
                           <a href="about.html">Mitra</a>
                           <ul className="dropdown">

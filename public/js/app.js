@@ -61806,7 +61806,7 @@ function (_Component) {
         href: "/"
       }, "Beranda")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/pages/product"
-      }, "Product ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      }, "Product")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "has-children"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "about.html"
