@@ -16,7 +16,6 @@ Route::get('/', 'MainController@index');
 Route::group(['prefix'  => 'pages'], function(){
   Route::get('/contact', function () {
     $xmlFile = file_get_contents(storage_path('app/public/company.xml'));
-    // var_dump($xmlFile);die;
     $xml = new \SimpleXMLElement($xmlFile);
     return view('pages/contact/index', [
       'company' => $xml,
@@ -26,6 +25,10 @@ Route::group(['prefix'  => 'pages'], function(){
 
   Route::get('/product-list/{id}', [
     'uses'  => 'PortofolioController@product_list'
+  ]);
+
+  Route::get('/product', [
+    'uses'  => 'BlogController@product'
   ]);
 
 });

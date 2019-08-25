@@ -12,7 +12,8 @@ class BlogsModel extends Model
 
     // RELASI dari table BLOGS dengan referensi table GROUP_BLOG_IMAGE
     // Jenis Relasi = One To Many
-  	function group_blog(){
+  	function group_image(){
     	return $this->hasMany('App\GroupBlogImageModel','id_blog');
   	}
+
 }

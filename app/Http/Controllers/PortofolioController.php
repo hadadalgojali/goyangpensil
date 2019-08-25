@@ -25,7 +25,7 @@ class PortofolioController extends Controller{
       $category      = CategoryModel::with('group_price_category')->where('id', $id)->get();
       // $price         = GroupPriceCategory::with('group_price_category')->where('id_category', $id)->get();
 
-      return view('pages/product-list/index', [
+      return view('pages/product-list/filter', [
         'id'         => $id,
         'portofolio' => $portofolio,
         'category'   => $category,

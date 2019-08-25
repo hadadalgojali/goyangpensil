@@ -61805,7 +61805,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/"
       }, "Beranda")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "listings.html"
+        href: "/pages/product"
       }, "Product")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "has-children"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {

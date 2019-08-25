@@ -109,7 +109,7 @@
       @endforeach
     </div>
     <div class="col-12 text-center mt-4">
-      <a href="#" class="btn btn-primary rounded py-2 px-4 text-white">Lihat semua produk</a>
+      <a href="{{URL::to('/')}}/pages/product" class="btn btn-primary rounded py-2 px-4 text-white">Lihat semua produk</a>
     </div>
   </div>
 </div>
