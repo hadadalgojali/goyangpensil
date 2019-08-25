@@ -6,30 +6,30 @@ use Illuminate\Http\Request;
 // use App\ImageModel;
 use Illuminate\Support\Facades\DB;
 use App\GroupBlogImageModel;
+use App\GroupCategoryImageModel;
 use App\CategoryModel;
+use App\GroupPriceCategory;
 
-class PortofolioController extends Controller
-{
+class PortofolioController extends Controller{
     //
     public function product_list($id = null){
       if (!is_numeric($id)) {
         $id = CategoryModel::whereRaw('LOWER(`category`) LIKE ? ',[trim(strtolower($id)).'%'])->get()[0]->id;
       }
 
-      $portofolio = GroupBlogImageModel::with('group_image')->where('id_blog', $id)->get();
+      $portofolio = GroupCategoryImageModel::with('group_image')->where('id_category', $id)->get();
       if (count($portofolio) == 0) {
         $portofolio = array();
       }
-      $category      = CategoryModel::where('id', $id)->get();
 
-      // $portofolio      = GroupBlogImageModel::with(['group_blog' => function($query) {
-      //     $query->where('id_blog', 4);
-      // }, 'group_image'])->get();
+      $category      = CategoryModel::with('group_price_category')->where('id', $id)->get();
+      // $price         = GroupPriceCategory::with('group_price_category')->where('id_category', $id)->get();
 
       return view('pages/product-list/index', [
         'id'         => $id,
         'portofolio' => $portofolio,
         'category'   => $category,
+        // 'price'     => $price,
       ]);
     }
 }

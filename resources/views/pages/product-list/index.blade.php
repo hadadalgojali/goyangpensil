@@ -13,10 +13,9 @@
 </style>
 <div id="load_screen"></div>
 @extends('index', ['title' => 'GP - Portofolio'])
-<!-- <div id="content" style="display:none;"> -->
-<!-- <div id="example">disini</div> -->
 
 @section('content')
+<?php // var_dump($category[0]->group_price_category[0]->price); ?>
 <div class="site-blocks-cover inner-page-cover overlay" data-aos="fade" data-stellar-background-ratio="0.5">
   <div class="container">
     <div class="row align-items-center justify-content-center text-center">
@@ -30,14 +29,43 @@
     </div>
   </div>
 </div>
-
-    <div class="site-section bg-light">
+<!-- ============================================= LIST TARIF ================================  -->
+    @if(count($category[0]->group_price_category) > 0)
+    <div class="site-section">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center border-primary">
-            <h2 class="font-weight-light text-primary">Daftar Gambar</h2>
+            <h2 class="font-weight-light text-primary">Daftar Harga</h2>
           </div>
         </div>
+        <div class="row">
+              @foreach($category[0]->group_price_category as $item)
+                <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+                  <div class="card border-primary">
+                    <div class="card-header">{{ $item->title }}</div>
+                    <div class="card-body text-primary">
+                      <h5 class="card-title">Rp.{{ number_format($item->price,2,',','.') }}</h5>
+                      <p class="card-text">{!! html_entity_decode($item->description) !!}</p>
+                    </div>
+                    <button class="btn btn-primary">Pesan</button>
+                  </div>
+                </div>
+              @endforeach
+        </div>
+      </div>
+    </div>
+    @endif
+    <!-- ============================================= PORTOFOLIO ================================  -->
+      <div class="site-section bg-light">
+        <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center border-primary">
+            <h2 class="font-weight-light text-primary">Portofolio</h2>
+          </div>
+        </div>
+
+        <?php //echo count($category[0]->group_price_category); ?>
+        <?php //var_dump($category[0]->group_price_category); ?>
 
         <div class="row">
           @foreach ($portofolio as $item)
@@ -54,5 +82,8 @@
         </div>
       </div>
     </div>
+<script>
+  let Article= 'Abcd';
+</script>
 @endsection
 <!-- </div> -->

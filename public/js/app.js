@@ -61444,17 +61444,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/assets/images/preload.gif":
-/*!*********************************************!*\
-  !*** ./resources/assets/images/preload.gif ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/preload.gif?9a1672911f0fe25789ea96e53e97f745";
-
-/***/ }),
-
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -61473,17 +61462,17 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+// require('./components/Example');
 
 
-__webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
+__webpack_require__(/*! ./components/pages/dashboard/_CMP_dashboard_me */ "./resources/js/components/pages/dashboard/_CMP_dashboard_me.js");
 
-__webpack_require__(/*! ./components/_Header */ "./resources/js/components/_Header.js");
+__webpack_require__(/*! ./components/layout_/_Header */ "./resources/js/components/layout_/_Header.js"); // require('./components/_Main');
 
-__webpack_require__(/*! ./components/_Footer */ "./resources/js/components/_Footer.js");
 
-__webpack_require__(/*! ./components/_Bottom */ "./resources/js/components/_Bottom.js");
+__webpack_require__(/*! ./components/layout_/_Footer */ "./resources/js/components/layout_/_Footer.js");
 
-__webpack_require__(/*! ./components/_PreLoader */ "./resources/js/components/_PreLoader.js");
+__webpack_require__(/*! ./components/layout_/_Bottom */ "./resources/js/components/layout_/_Bottom.js");
 
 /***/ }),
 
@@ -61545,86 +61534,10 @@ if (token) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Example.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/Example.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Example; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-var Example =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Example, _Component);
-
-  function Example() {
-    _classCallCheck(this, Example);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Example).apply(this, arguments));
-  }
-
-  _createClass(Example, [{
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row justify-content-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Ini Contoh"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, "I'm an example component!")))));
-    }
-  }]);
-
-  return Example;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-
-if (document.getElementById('example')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Example, null), document.getElementById('example'));
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/_Bottom.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/_Bottom.js ***!
-  \********************************************/
+/***/ "./resources/js/components/layout_/_Bottom.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/layout_/_Bottom.js ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -61733,10 +61646,10 @@ if (document.getElementById('_bottom')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/_Footer.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/_Footer.js ***!
-  \********************************************/
+/***/ "./resources/js/components/layout_/_Footer.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/layout_/_Footer.js ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -61809,10 +61722,10 @@ if (document.getElementById('_footer')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/_Header.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/_Header.js ***!
-  \********************************************/
+/***/ "./resources/js/components/layout_/_Header.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/layout_/_Header.js ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -61935,22 +61848,20 @@ if (document.getElementById('_header')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/_PreLoader.js":
-/*!***********************************************!*\
-  !*** ./resources/js/components/_PreLoader.js ***!
-  \***********************************************/
+/***/ "./resources/js/components/pages/dashboard/_CMP_dashboard_me.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/pages/dashboard/_CMP_dashboard_me.js ***!
+  \**********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _PreLoader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _CMP_dashboard_me; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _assets_images_preload_gif__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/images/preload.gif */ "./resources/assets/images/preload.gif");
-/* harmony import */ var _assets_images_preload_gif__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_images_preload_gif__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -61972,38 +61883,71 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-var _PreLoader =
+var _CMP_dashboard_me =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(_PreLoader, _Component);
+  _inherits(_CMP_dashboard_me, _Component);
 
-  function _PreLoader() {
-    _classCallCheck(this, _PreLoader);
+  function _CMP_dashboard_me() {
+    _classCallCheck(this, _CMP_dashboard_me);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(_PreLoader).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(_CMP_dashboard_me).apply(this, arguments));
   }
 
-  _createClass(_PreLoader, [{
+  _createClass(_CMP_dashboard_me, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "preloader-wrapper"
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row justify-content-center mb-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "preloader"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: _assets_images_preload_gif__WEBPACK_IMPORTED_MODULE_2___default.a
-      })));
+        className: "col-md-7 text-center border-primary"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "font-weight-light text-primary"
+      }, "Kenapa kami ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "color-black-opacity-5"
+      }, "Cari tahu kenapa anda harus memilih kami."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mb-3 align-items-stretch"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6 col-lg-4 mb-4 mb-lg-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "h-entry"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "font-size-regular"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "text-black"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "fa fa-users"
+      }), " Menjadi teman baik")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Kami selalu berupaya menjalin hubungan mitra kerja sama sebaik mungkin, karena kami percaya memiliki hubungan yang baik dapat mempermudah tujuan kita client maupun develop."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6 col-lg-4 mb-4 mb-lg-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "h-entry"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "font-size-regular"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "text-black"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "fa fa-wrench"
+      }), " Perbaikan dan revisi")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Kepuasan pelanggan menjadi prioritas utama bagi kami, karena itu kami memberi kesempatan pada pelanggan untuk merevisi hasil kerja dari kami."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6 col-lg-4 mb-4 mb-lg-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "h-entry"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "font-size-regular"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "text-black"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "fa fa-dollar"
+      }), " Biaya terjangkau")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Kami berani bersaing dengan vendor lain mengenai harga yang kami tawarkan, dijamin murah dengan kualitas barang yang tentunya tidak murahan.")))));
     }
   }]);
 
-  return _PreLoader;
+  return _CMP_dashboard_me;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
 
-if (document.getElementById('_preloader')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PreLoader, null), document.getElementById('_preloader'));
+if (document.getElementById('cmp_dashboard_me')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CMP_dashboard_me, null), document.getElementById('cmp_dashboard_me'));
 }
 
 /***/ }),

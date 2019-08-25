@@ -41,6 +41,9 @@
 
       <script>
         document.getElementById('load_screen').style.display = 'none';
+          $('.carousel').carousel({
+            interval: 2000
+          })
         // var Body = $('body');
         // Body.addClass('preloader-site');
         // $(window).load(function() {

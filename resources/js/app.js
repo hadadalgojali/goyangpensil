@@ -12,8 +12,9 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Example');
-require('./components/_Header');
-require('./components/_Footer');
-require('./components/_Bottom');
-require('./components/_PreLoader');
+// require('./components/Example');
+require('./components/pages/dashboard/_CMP_dashboard_me');
+require('./components/layout_/_Header');
+// require('./components/_Main');
+require('./components/layout_/_Footer');
+require('./components/layout_/_Bottom');

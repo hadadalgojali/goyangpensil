@@ -16,6 +16,7 @@
 <!-- <div id="load_screen"><div id="loading"><img src="{{asset('assets/images/preload.gif')}}"></div></div> -->
 @extends('index', ['title' => 'GP - Beranda'])
 @section('content')
+<div id="_main"></div>
 <!-- <div id="content" style="display:none;"> -->
 <div class="site-blocks-cover overlay" data-aos="fade" data-stellar-background-ratio="0.5">
   <div class="container">
@@ -47,7 +48,6 @@
               <div class="col-lg-12 col-xl-2 ml-auto text-right">
                 <input type="submit" class="btn btn-primary btn-block rounded" value="Search">
               </div>
-
             </div>
           </form>
         </div>
@@ -73,33 +73,7 @@
           @endforeach
       </div>
     </div>
-      <div class="row justify-content-center mb-5">
-        <div class="col-md-7 text-center border-primary">
-          <h2 class="font-weight-light text-primary">Kenapa kami ?</h2>
-          <p class="color-black-opacity-5">Cari tahu kenapa anda harus memilih kami.</p>
-        </div>
-      </div>
-
-      <div class="row mb-3 align-items-stretch">
-        <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-          <div class="h-entry">
-            <h2 class="font-size-regular"><a href="#" class="text-black"><span class="fa fa-users"></span> Menjadi teman baik</a></h2>
-            <p>Kami selalu berupaya menjalin hubungan mitra kerja sama sebaik mungkin, karena kami percaya memiliki hubungan yang baik dapat mempermudah tujuan kita client maupun develop.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-          <div class="h-entry">
-            <h2 class="font-size-regular"><a href="#" class="text-black"><span class="fa fa-wrench"></span> Perbaikan dan revisi</a></h2>
-            <p>Kepuasan pelanggan menjadi prioritas utama bagi kami, karena itu kami memberi kesempatan pada pelanggan untuk merevisi hasil kerja dari kami.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-          <div class="h-entry">
-            <h2 class="font-size-regular"><a href="#" class="text-black"><span class="fa fa-dollar"></span> Biaya terjangkau</a></h2>
-            <p>Kami berani bersaing dengan vendor lain mengenai harga yang kami tawarkan, dijamin murah dengan kualitas barang yang tentunya tidak murahan.</p>
-          </div>
-        </div>
-      </div>
+    <div id="cmp_dashboard_me"></div>
   </div>
 </div>
 
@@ -126,7 +100,7 @@
                 @foreach ($tag as $tag)
                   <a class="px-3 mb-3 category" href="pages/product-list/{{ $tag }}">{{ $tag }}</a>
                 @endforeach
-                <h2 class="mb-1"><a href="#">{{ $item->title }}</a></h2>
+                <h2 class="mb-1"><a href="pages/product-list/{{ $tag }}">{{ $item->title }}</a></h2>
                 <span class="address">{{ $item->description }}</span>
               </div>
             </div>

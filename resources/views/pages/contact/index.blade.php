@@ -38,7 +38,7 @@
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">First Name</label>
-                  <input type="text" id="fname" class="form-control">
+                  <input type="text" id="fname" class="form-control" onchange="setfname(this);">
                 </div>
                 <div class="col-md-6">
                   <label class="text-black" for="lname">Last Name</label>
@@ -46,40 +46,45 @@
                 </div>
               </div>
 
-              <div class="row form-group">
+              <!-- <div class="row form-group">
 
                 <div class="col-md-12">
                   <label class="text-black" for="email">Email</label>
                   <input type="email" id="email" class="form-control">
                 </div>
-              </div>
+              </div> -->
 
-              <div class="row form-group">
-
+              <!-- <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="subject">Subject</label>
                   <input type="subject" id="subject" class="form-control">
                 </div>
-              </div>
+              </div> -->
 
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="text-black" for="message">Message</label>
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control">Saya ingin memesan :)</textarea>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary py-2 px-4 text-white">
+                  <!-- <input type="submit" value="Send Message" class="btn btn-primary py-2 px-4 text-white"> -->
+                  <?php
+                    $url    = "https://wa.me";
+                    $phone  = substr($company->phone, 1);
+                    // $phone  = "6285721466967";
+                    $link   = $url."/".$phone;
+                    // echo $link;
+                    // $link   .= "?".$fname;
+                  ?>
+                  <a class="btn btn-primary" href="javascript:;" onclick="send();">Kirim Pesan</a>
                 </div>
               </div>
-
-
             </form>
           </div>
           <div class="col-md-5"  data-aos="fade" data-aos-delay="100">
-
             <div class="p-4 mb-3 bg-white">
               <p class="mb-0 font-weight-bold">Address</p>
               <p class="mb-4">{{ $company->address }}</p>
@@ -89,17 +94,20 @@
 
               <p class="mb-0 font-weight-bold">Email Address</p>
               <p class="mb-0"><a href="javascript:;">{{ $company->email }}</a></p>
-
             </div>
 
             <div class="p-4 mb-3 bg-white">
               <h3 class="h5 text-black mb-3">More Info</h3>
               <p>{{ $company->information }}</p>
             </div>
-
           </div>
         </div>
       </div>
     </div>
+<script>
+  function send(){
+    window.location.href = "<?php echo $link; ?>"+"?text="+document.getElementById('message').value+", "+document.getElementById('fname').value+" "+document.getElementById('lname').value+" ";
+  }
+</script>
 @endsection
 <!-- </div> -->
