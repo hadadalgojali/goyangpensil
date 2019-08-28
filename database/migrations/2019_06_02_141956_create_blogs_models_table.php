@@ -19,6 +19,7 @@ class CreateBlogsModelsTable extends Migration
             $table->primary('id');
             $table->integer('id_user');
             $table->string('title', 100);
+            $table->string('icon', 50);
             $table->text('description');
             $table->integer('project_count');
             $table->datetime('created_at');

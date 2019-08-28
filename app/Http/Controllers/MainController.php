@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\CategoryModel;
+use App\BlogsModel;
 
 class MainController extends Controller
 {
@@ -15,11 +16,7 @@ class MainController extends Controller
      */
     public function index() {
         //
-        $category = DB::table('category')
-        ->leftJoin('group_blog_category', 'group_blog_category.id_category', '=', 'category.id')
-        ->leftJoin('blogs', 'blogs.id', '=', 'group_blog_category.id_blog')
-        ->select('category.*', DB::raw('COALESCE(blogs.project_count, 0) as count'))
-        ->get();
+        $blogs = BlogsModel::select('*', DB::raw('(SELECT count(*) FROM group_blog_image WHERE id_blog = blogs.id) as count_portofolio'))->orderBy('id', 'asc')->limit(6)->get();
 
         $popular  = DB::table('blogs')
         ->join('setup_blog', 'setup_blog.id_blog', '=', 'blogs.id')
@@ -34,7 +31,7 @@ class MainController extends Controller
 
 
         return view('pages/dashboard/index', [
-          'category' => $category,
+          'blogs'   => $blogs,
           'popular'  => $popular,
         ]);
     }

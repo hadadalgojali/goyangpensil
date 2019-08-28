@@ -8,7 +8,7 @@ class BlogsModel extends Model
 {
     //
     protected $table = 'blogs';
-    protected $fillable = ['id', 'id_user', 'title', 'project_count'];
+    protected $fillable = ['id', 'id_user', 'title', 'project_count', 'icon'];
 
     // RELASI dari table BLOGS dengan referensi table GROUP_BLOG_IMAGE
     // Jenis Relasi = One To Many

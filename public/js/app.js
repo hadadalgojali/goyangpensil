@@ -61810,11 +61810,13 @@ function (_Component) {
         className: "has-children"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "about.html"
-      }, "Mitra"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, "Layanan"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "dropdown"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"
-      }, "Mengenai Kami")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, "Tentang Kami")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/pages/category"
+      }, "Teknik Menggambar")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "/pages/contact"
       }, "Kontak")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "#"

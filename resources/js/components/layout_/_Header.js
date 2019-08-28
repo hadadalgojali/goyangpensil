@@ -29,9 +29,10 @@ export default class _Header extends Component {
                         <li><a href="/">Beranda</a></li>
                         <li><a href="/pages/product">Product</a></li>
                         <li className="has-children">
-                          <a href="about.html">Mitra</a>
+                          <a href="about.html">Layanan</a>
                           <ul className="dropdown">
-                            <li><a href="#">Mengenai Kami</a></li>
+                            <li><a href="#">Tentang Kami</a></li>
+                            <li><a href="/pages/category">Teknik Menggambar</a></li>
                             <li><a href="/pages/contact">Kontak</a></li>
                             <li><a href="#">Kerja sama</a></li>
                           </ul>

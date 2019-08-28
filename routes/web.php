@@ -23,12 +23,24 @@ Route::group(['prefix'  => 'pages'], function(){
   });
 
 
-  Route::get('/product-list/{id}', [
-    'uses'  => 'PortofolioController@product_list'
+  Route::get('/product/{id}', [
+    'uses'  => 'BlogsController@product'
   ]);
 
   Route::get('/product', [
-    'uses'  => 'BlogController@product'
+    'uses'  => 'BlogsController@product'
   ]);
+
+  Route::get('/category/{id}', [
+    'uses'  => 'CategoryController@category'
+  ]);
+
+  Route::get('/category', [
+    'uses'  => 'CategoryController@category'
+  ]);
+
+  // Route::get('/product', [
+  //   'uses'  => 'BlogController@product'
+  // ]);
 
 });

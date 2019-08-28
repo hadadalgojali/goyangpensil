@@ -39,8 +39,8 @@
                   <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
                   <select class="form-control rounded" name="" id="">
                     <option value="">All Categories</option>
-                    @foreach ($category as $item)
-                      <option value="{{ $item->id }}">{{ $item->category }}</option>
+                    @foreach ($blogs as $item)
+                      <option value="{{ $item->id }}">{{ $item->title }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -61,13 +61,13 @@
   <div class="container">
     <div class="overlap-category mb-4">
       <div class="row align-items-stretch no-gutters">
-          @foreach ($category as $item)
+          @foreach ($blogs as $item)
             <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-              <a href="/pages/product-list/{{ $item->id }}" class="popular-category h-100">
+              <a href="/pages/product/{{ $item->id }}" class="popular-category h-100">
                 <!-- <span class="{{ $item->icon }} fa-2x"></span> -->
                 <img src="{{URL::to('/')}}/assets/icon/{{ $item->icon }}" width="42" height="42">
-                <span class="caption mb-2 d-block" style="padding-top:10px;">{{ $item->category }}</span>
-                <span class="number">{{ $item->count }}</span>
+                <span class="caption mb-2 d-block" style="padding-top:10px;">{{ $item->title }}</span>
+                <span class="number">{{ $item->count_portofolio }}</span>
               </a>
             </div>
           @endforeach
@@ -98,9 +98,9 @@
                 <!-- $popular_category -->
                 <?php $tag = explode(",",$item->category); ?>
                 @foreach ($tag as $tag)
-                  <a class="px-3 mb-3 category" href="pages/product-list/{{ $tag }}">{{ $tag }}</a>
+                  <a class="px-3 mb-3 category" href="pages/category/{{ $tag }}">{{ $tag }}</a>
                 @endforeach
-                <h2 class="mb-1"><a href="pages/product-list/{{ $tag }}">{{ $item->title }}</a></h2>
+                <h2 class="mb-1"><a href="pages/product/{{ $item->title }}">{{ strtoupper($item->title) }}</a></h2>
                 <span class="address">{{ $item->description }}</span>
               </div>
             </div>
