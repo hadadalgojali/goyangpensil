@@ -25,7 +25,8 @@ class CategoryController extends Controller{
 
       if (($id!==null || strlen($id) > 0) && $result === true) {
         $title = "";
-        $portofolio = GroupCategoryImageModel::with('group_image')->with('group_catgory')->where('id_category', $id)->get();
+        // $portofolio = GroupCategoryImageModel::with('group_image')->with('group_catgory')->where('id_category', $id)->get();
+        $portofolio = CategoryModel::where('id', $id)->get();
       }else if($result === true){
         // $portofolio = GroupBlogImageModel::with('group_image')->with('group_blog')->get();
         $portofolio = CategoryModel::get();
@@ -36,5 +37,15 @@ class CategoryController extends Controller{
         'portofolio'  => $portofolio,
         'title'       => $title,
       ]);
+    }
+
+    public function get_images(Request $request){
+      $prtofolio = GroupCategoryImageModel::with('group_image')->where('id_category', $request->post('id'))->skip($request->post('page'))->take(3)->get();
+      echo json_encode(array(
+        'message'   => "Load Success",
+        'id_blog'   => $request->post('id'),
+        'portofolio'=> $prtofolio,
+        'count'     => count($prtofolio),
+      ));
     }
 }

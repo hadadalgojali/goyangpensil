@@ -44,3 +44,8 @@ Route::group(['prefix'  => 'pages'], function(){
   // ]);
 
 });
+
+Route::group(['prefix'  => 'json'], function(){
+    Route::post('/image/blog', 'BlogsController@get_images');
+    Route::post('/image/category', 'CategoryController@get_images');
+});

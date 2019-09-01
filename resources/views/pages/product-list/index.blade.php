@@ -18,8 +18,9 @@
 <?php
   $m_title = "";
   if ($id !== null) {
-    if (count( $portofolio) > 0) {
-      $m_title = $portofolio[0]->group_blog->title;
+    if (count($portofolio) > 0) {
+      // $m_title = $portofolio[0]->group_blog->title;
+      $m_title = $portofolio[0]->title;
     }else{
       $m_title = "Tidak Tersedia";
     }
@@ -40,25 +41,16 @@
 </div>
   <?php //var_dump($portofolio[0]->group_blog->title); ?>
   @if($id !== null && count( $portofolio) > 0)
+  <script>
+      window.reactInit = {
+          url    : "{{URL::to('/')}}",
+          id_blog: "<?php echo $id; ?>",
+          csrf_token: "{{csrf_token()}}",
+      };
+  </script>
   <!-- ============================================= PORTOFOLIO ================================  -->
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row">
-          @foreach ($portofolio as $_row_portofolio)
-            <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
-              <a href="{{URL::to('/')}}{{ $_row_portofolio->group_image->path }}{{ $_row_portofolio->group_image->image }}.{{ $_row_portofolio->group_image->ext }}" target="_blank">
-                <div class="listing-item">
-                    <div class="listing-image" style="height:320px;">
-                        <img src="{{URL::to('/')}}{{ $_row_portofolio->group_image->path }}{{ $_row_portofolio->group_image->image }}.{{ $_row_portofolio->group_image->ext }}" alt="Image" class="img-fluid">
-                    </div>
-                </div>
-              </a>
-            </div>
-          @endforeach
-        </div>
-      </div>
-    </div>
-  @elseif(count($portofolio) > 0)
+  <div id="_image_blog_list"></div>
+  @elseif(count($portofolio) > 1)
     <div class="site-section">
       <div class="container">
       <div class="list-group">

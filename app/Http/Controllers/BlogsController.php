@@ -26,7 +26,8 @@ class BlogsController extends Controller{
 
         if (($id!==null || strlen($id) > 0) && $result === true) {
           $title = "";
-          $portofolio = GroupBlogImageModel::with('group_image')->where('id_blog', $id)->get();
+          $portofolio = BlogsModel::where('id', $id)->get();
+          // $portofolio = GroupBlogImageModel::with('group_image')->where('id_blog', $id)->get();
         }else if( $result === true){
           // $portofolio = GroupBlogImageModel::with('group_image')->with('group_blog')->get();
           $portofolio = BlogsModel::get();
@@ -41,5 +42,15 @@ class BlogsController extends Controller{
           'portofolio'  => $portofolio,
           'title'       => $title,
         ]);
+    }
+
+    public function get_images(Request $request){
+      $prtofolio = GroupBlogImageModel::with('group_image')->where('id_blog', $request->post('id_blog'))->skip($request->post('page'))->take(3)->get();
+      echo json_encode(array(
+        'message'   => "Load Success",
+        'id_blog'   => $request->post('id_blog'),
+        'portofolio'=> $prtofolio,
+        'count'     => count($prtofolio),
+      ));
     }
 }

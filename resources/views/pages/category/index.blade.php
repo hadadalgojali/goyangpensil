@@ -19,8 +19,8 @@
   $m_title = "";
   if ($id !== null) {
     if (count( $portofolio) > 0) {
-      // var_dump($portofolio[0]->group_catgory->category);die;
-      $m_title = $portofolio[0]->group_catgory->category;
+      // $m_title = $portofolio[0]->group_catgory->category;
+      $m_title = $portofolio[0]->category;
     }else{
       $m_title = "Tidak Tersedia";
     }
@@ -40,23 +40,15 @@
   </div>
 </div>
 @if($id !== null && count( $portofolio) > 0)
-  <div class="site-section bg-light">
-    <div class="container">
-      <div class="row">
-        @foreach ($portofolio as $_row_portofolio)
-          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
-            <a href="{{URL::to('/')}}{{ $_row_portofolio->group_image->path }}{{ $_row_portofolio->group_image->image }}.{{ $_row_portofolio->group_image->ext }}" target="_blank">
-              <div class="listing-item">
-                  <div class="listing-image" style="height:320px;">
-                      <img src="{{URL::to('/')}}{{ $_row_portofolio->group_image->path }}{{ $_row_portofolio->group_image->image }}.{{ $_row_portofolio->group_image->ext }}" alt="Image" class="img-fluid">
-                  </div>
-              </div>
-            </a>
-          </div>
-        @endforeach
-      </div>
-    </div>
-  </div>
+  <script>
+      window.reactInit = {
+          url    : "{{URL::to('/')}}",
+          id: "<?php echo $id; ?>",
+          csrf_token: "{{csrf_token()}}",
+      };
+  </script>
+  <!-- ============================================= PORTOFOLIO ================================  -->
+  <div id="_image_category_list"></div>
 @elseif(count($portofolio) > 0)
   <div class="site-section">
     <div class="container">

@@ -15,6 +15,8 @@ require('./bootstrap');
 // require('./components/Example');
 require('./components/pages/dashboard/_CMP_dashboard_me');
 require('./components/layout_/_Header');
+require('./components/layout_/_Image_blog_list');
+require('./components/layout_/_Image_category_list');
 // require('./components/_Main');
 require('./components/layout_/_Footer');
 require('./components/layout_/_Bottom');
