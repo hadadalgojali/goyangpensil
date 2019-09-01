@@ -96,12 +96,19 @@
               <div class="listing-item-content">
                 <a href="#" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
                 <!-- $popular_category -->
-                <?php $tag = explode(",",$item->category); ?>
+                <?php
+                  $tag = explode(",",$item->category);
+                  $tag = array_unique($tag);
+                ?>
                 @foreach ($tag as $tag)
                   <a class="px-3 mb-3 category" href="pages/category/{{ $tag }}">{{ $tag }}</a>
                 @endforeach
                 <h2 class="mb-1"><a href="pages/product/{{ $item->title }}">{{ strtoupper($item->title) }}</a></h2>
-                <span class="address">{{ $item->description }}</span>
+                @if(strlen($item->description) > 75)
+                  <span class="address">{{ substr($item->description, 0, 75)." ..." }}</span>
+                @else
+                  <span class="address">{{ $item->description }}</span>
+                @endif
               </div>
             </div>
           </div>
