@@ -12,6 +12,13 @@
 */
 
 Route::get('/', 'MainController@index');
+Route::get('/logout', 'AuthController@logout');
+
+Route::post('/login/custom', [
+  'uses'  => 'AuthController@login',
+  'as'    => 'login.custom'
+]);
+
 
 Route::group(['prefix'  => 'pages'], function(){
   Route::get('/contact', function () {
@@ -49,3 +56,7 @@ Route::group(['prefix'  => 'json'], function(){
     Route::post('/image/blog', 'BlogsController@get_images');
     Route::post('/image/category', 'CategoryController@get_images');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

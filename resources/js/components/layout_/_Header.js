@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
+// import _Modal_login_regis from './_Modal_login_regis';
 import ReactDOM from 'react-dom';
+var isShow = false;
 
-export default class _Header extends Component {
+class _Header extends Component {
+  
     render() {
+    // const [show, setShow] = useState(false);
+
         return (
           <div>
             <div className="site-mobile-menu">
@@ -29,7 +35,7 @@ export default class _Header extends Component {
                         <li><a href="/">Beranda</a></li>
                         <li><a href="/pages/product">Product</a></li>
                         <li className="has-children">
-                          <a href="about.html">Layanan</a>
+                          <a href="#">Layanan</a>
                           <ul className="dropdown">
                             <li><a href="#">Tentang Kami</a></li>
                             <li><a href="/pages/category">Teknik Menggambar</a></li>
@@ -37,8 +43,21 @@ export default class _Header extends Component {
                             <li><a href="#">Kerja sama</a></li>
                           </ul>
                         </li>
-                        <li className="ml-xl-3 login"><a href="login.html"><span className="border-left pl-xl-4"></span>Log In</a></li>
-                        <li><a href="register.html">Register</a></li>
+                          {sess_id.length > 0 &&
+                            <li className="has-children">
+                              <a href="#">Option</a>
+                              <ul className="dropdown" style={{ marginLeft:"-50px"}}>
+                                <li><a href="#">Profilku</a></li>
+                                <li><a href="/pages/category">Projectku</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                              </ul>
+                            </li>
+                          }
+                          {sess_id.length == 0 &&
+                            <li className="ml-xl-3">
+                              <a href="/login">Masuk</a>
+                            </li>
+                          }
                       </ul>
                     </nav>
                   </div>

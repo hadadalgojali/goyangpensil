@@ -1,6 +1,6 @@
 <html lang="{{ app()->getLocale() }}">
   <head>
-    <title>GoyangPensil</title>
+    <title>Goyang Pensil</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,6 +17,9 @@
   <body>
     <div class="site-wrap">
       <div id="_header"></div>
+      <script>
+        var sess_id = "{{ session()->get('id') }}";
+      </script>
       @yield('content')
       <footer class="site-footer">
         <div class="container">
