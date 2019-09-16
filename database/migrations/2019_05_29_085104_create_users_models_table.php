@@ -22,6 +22,8 @@ class CreateUsersModelsTable extends Migration
             $table->string('phone', 15);
             $table->string('email', 100);
             $table->unique('email');
+            $table->string('provider');
+            $table->string('provider_id');
             $table->text('address');
             $table->datetime('updated_at');
             $table->datetime('created_at');

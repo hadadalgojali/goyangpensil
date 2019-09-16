@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-center h-100">
         <div class="card">
             <div class="card-header">
-                <h3>{{ __('Login') }}</h3>
+                <h4>{{ __('Login') }}</h4>
                 <div class="d-flex justify-content-end social_icon">
                     <span><i class="fa fa-facebook-square"></i></span>
                     <span><i class="fa fa-google-plus-square"></i></span>
@@ -38,7 +38,7 @@
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-center links">
-                    Don't have an account?<a href="#">Sign Up</a>
+                    Don't have an account?<a href="/register">Sign Up</a>
                 </div>
                 <div class="d-flex justify-content-center">
                     <a href="#">Forgot your password?</a>

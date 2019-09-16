@@ -19,6 +19,12 @@ Route::post('/login/custom', [
   'as'    => 'login.custom'
 ]);
 
+Route::get('/login/custom/redirect/{provider}', 'AuthController@redirect')
+->where('social', 'facebook|google');
+
+Route::get('/login/custom/callback/{provider}', 'AuthController@callback')
+->where('social', 'facebook|google');
+
 
 Route::group(['prefix'  => 'pages'], function(){
   Route::get('/contact', function () {
@@ -55,6 +61,7 @@ Route::group(['prefix'  => 'pages'], function(){
 Route::group(['prefix'  => 'json'], function(){
     Route::post('/image/blog', 'BlogsController@get_images');
     Route::post('/image/category', 'CategoryController@get_images');
+    Route::post('/auth/check_username', 'AuthController@check_username');
 });
 
 Auth::routes();

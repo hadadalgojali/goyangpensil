@@ -21,3 +21,4 @@ require('./components/layout_/_Image_category_list');
 // require('./components/_Main');
 require('./components/layout_/_Footer');
 require('./components/layout_/_Bottom');
+require('./components/pages/register/_CMP_username_reg');
