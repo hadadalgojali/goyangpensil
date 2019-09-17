@@ -28,6 +28,49 @@ class AuthController extends Controller{
         }
     }
 
+    public function register(Request $request){
+        $result = false;
+        $parameter = [
+            'username' => $request->input('username'),
+            'password' => Hash::make($request->input('password')),
+        ];
+        
+        $result = UsersModel::select(DB::raw('max(id) as id '))->first()->get();
+        if ($result->count() > 0) {
+            $parameter['id'] = (int)$result[0]->id + 1;
+        }else{
+            $parameter['id'] = 1;
+        }
+
+        $affected = UsersModel::insert([
+            'id'            => $parameter['id'],
+            'first_name'    => $parameter['username'],
+        ]);
+
+        if($affected){
+            $affected = DB::table('auth')
+            ->where('id', $parameter['id'])
+            ->update(['password' => $parameter['password']]);
+        }
+
+        if($affected){
+            if (Auth::attempt(array(
+                'username'  => $parameter['username'],
+                'password'  => $request->input('password'),
+            ))) {
+                $result = UsersModel::where('id', Auth::id());
+                if ($result->count() > 0) {
+                    Session::put('id', $result->get()[0]->id);
+                    return redirect('/');
+                }
+            }else{
+                return redirect()->route('login');
+            }
+        }else{
+            return redirect()->route('register');
+        }
+    }
+
     public function check_username(Request $request){
     	$parameter = [
             'username' => $request->input('username'),

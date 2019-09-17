@@ -19,6 +19,11 @@ Route::post('/login/custom', [
   'as'    => 'login.custom'
 ]);
 
+Route::post('/register/custom', [
+  'uses'  => 'AuthController@register',
+  'as'    => 'register.custom'
+]);
+
 Route::get('/login/custom/redirect/{provider}', 'AuthController@redirect')
 ->where('social', 'facebook|google');
 

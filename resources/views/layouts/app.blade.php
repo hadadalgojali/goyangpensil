@@ -22,13 +22,6 @@
     <script src="{{asset('assets/template/public/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('assets/template/public/js/jquery-ui.js')}}"></script>
     <script src="{{asset('assets/template/public/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets/bootstrap-notify/bootstrap-notify.js')}}"></script>
     <script src="/js/app.js" type="text/javascript"></script>
-    <script>
-        // $.notify({
-        //     title: "<strong>Welcome:</strong> ",
-        //     message: "This plugin has been provided to you by Robert McIntosh aka mouse0270"
-        // });
-    </script>
 </body>
 </html>

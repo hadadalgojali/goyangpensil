@@ -1,6 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .loader {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  animation: around 5.4s infinite;
+}
+
+@keyframes around {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.loader::after, .loader::before {
+  content: "";
+  background: transparent;
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-width: 2px;
+  border-color: #333 #333 transparent transparent;
+  border-style: solid;
+  border-radius: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  animation: around 0.7s ease-in-out infinite;
+}
+
+.loader::after {
+  animation: around 0.7s ease-in-out 0.1s infinite;
+  background: transparent;
+}
+</style>
 <div class="container">
     <!-- <div class="d-flex justify-content-center" style="">
         <div class="alert alert-primary" role="alert" >A simple primary alert—check it out!</div> 
@@ -19,27 +59,16 @@
             </div>
 
             <div class="card-body">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register.custom') }}">
                     @csrf
                     <div id="_cmp_username_reg"></div>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-key"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Password" name="password">
-                    </div>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-key"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Re-type Password" name="re_password">
-                    </div>
+                    <div id="_cmp_password_reg"></div>
                     <div class="social_icon-tab">
                         <span><a href="{{ url('login/custom/redirect/facebook') }}"><i class="fa fa-facebook-square"></i></a></span>
                         <span><a href="{{ url('login/custom/redirect/google') }}"><i class="fa fa-google-plus-square"></i></a></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Register" class="btn float-right login_btn">
+                        <input type="submit" value="Register" class="btn float-right login_btn" >
                     </div>
                 </form>
             </div>
