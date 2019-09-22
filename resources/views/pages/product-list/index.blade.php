@@ -49,7 +49,7 @@
   <?php //var_dump($category[1]);die; ?>
   @if($id !== null && count( $portofolio) > 0)
   <div class="container" style="padding:10px;">
-    <div class="row">
+    <div class="row" style="position: relative;">
       <div class="col-3">
         @if($c_title == '' || $c_title == null)
           <img src="{{URL::to('/')}}/assets/images/no_image.jpg" alt="cover" class="img-thumbnail" width="400" height="400">
@@ -57,7 +57,7 @@
           <img src="{{URL::to('/')}}{{ $c_title }}" alt="cover" class="img-thumbnail" width="400" height="400">
         @endif
       </div>
-      <div class="col-9">
+      <div class="col-9"  style="">
         <small class="text-muted">
           Diposting oleh <b>{{ $portofolio[0]->blog_by_user->first_name." ".$portofolio[0]->blog_by_user->last_name }}</b>, pada {{ date_format(date_create($portofolio[0]->updated_at), 'd/M/Y') }}
           <div style="float:right;"><i class="fa fa-eye"></i> {{ $portofolio[0]->viewers }}</div>
@@ -71,6 +71,18 @@
             <a href="{{URL::to('/')}}/{{$_link}}"><span class="badge badge-info"><font style="font-family:calibri;">{{ $row->with_category->category }}</font></span></a>
           @endforeach
         </small>
+        <?php 
+          // var_dump($package);
+        ?>
+      </div>
+      <div style="position:absolute;bottom:0;right:0;">
+        @if(count($package) > 0)
+          Daftar harga : 
+        @endif
+        @foreach($package as $result)
+          <!-- <button class="btn btn-primary btn-sm">{{ $result->title }}</button> -->
+          <div class="_modal_package"></div>
+        @endforeach
       </div>
     </div>
   </div>

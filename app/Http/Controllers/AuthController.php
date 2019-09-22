@@ -35,7 +35,7 @@ class AuthController extends Controller{
             'password' => Hash::make($request->input('password')),
         ];
         
-        $result = UsersModel::select(DB::raw('max(id) as id '))->first()->get();
+        $result = UsersModel::select(DB::raw('max(id) as id '))->limit(1)->get();
         if ($result->count() > 0) {
             $parameter['id'] = (int)$result[0]->id + 1;
         }else{

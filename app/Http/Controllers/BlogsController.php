@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\BlogsModel;
 use App\GroupBlogImageModel;
 use App\GroupBlogCategoryModel;
+use App\PackageModel;
 
 class BlogsController extends Controller{
     //
@@ -13,6 +14,7 @@ class BlogsController extends Controller{
         $title    = "Daftar Produk";
         $result   = true;
         $category = array();
+        $package  = array();
         if (!is_numeric($id) && strlen($id) > 0) {
           // $id = BlogsModel::whereRaw('LOWER(`title`) LIKE ? ',[trim(strtolower($id)).'%'])->get()[0]->id;
           $result = BlogsModel::whereRaw('LOWER(`title`) LIKE ? ',[trim(strtolower($id)).'%']);
@@ -39,8 +41,10 @@ class BlogsController extends Controller{
               ->where('id', $id)
               ->get();
               $category = GroupBlogCategoryModel::with('with_category')->where('id_blog', $id)->get();
+              $package  = PackageModel::where('id_blog', $id)->get();
             }
           }
+
           // $portofolio = GroupBlogImageModel::with('group_image')->where('id_blog', $id)->get();
         }else if( $result === true){
           // $portofolio = GroupBlogImageModel::with('group_image')->with('group_blog')->get();
@@ -56,6 +60,7 @@ class BlogsController extends Controller{
           'portofolio'  => $portofolio,
           'category'    => $category,
           'title'       => $title,
+          'package'     => $package,
         ]);
     }
 

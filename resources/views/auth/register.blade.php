@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <style>
     .loader {
@@ -56,20 +55,24 @@
         <div class="card"> 
             <div class="card-header">
                 <h4>{{ __('Register') }}</h4>
+                <div class="d-flex justify-content-end social_icon">
+                <span><a  style="color:white;" href="{{ url('login/custom/redirect/facebook') }}"><i class="fa fa-facebook-square"></i></a></span>
+                <span><a  style="color:white;" href="{{ url('login/custom/redirect/google') }}"><i class="fa fa-google-plus-square"></i></a></span>
+                </div>
             </div>
+                
+            <!-- <div class="social_icon-tab">
+                <span><a href="{{ url('login/custom/redirect/facebook') }}"><i class="fa fa-facebook-square"></i></a></span>
+                <span><a href="{{ url('login/custom/redirect/google') }}"><i class="fa fa-google-plus-square"></i></a></span>
+            </div> -->
 
             <div class="card-body">
                 <form method="POST" action="{{ route('register.custom') }}">
                     @csrf
-                    <div id="_cmp_username_reg"></div>
-                    <div id="_cmp_password_reg"></div>
-                    <div class="social_icon-tab">
-                        <span><a href="{{ url('login/custom/redirect/facebook') }}"><i class="fa fa-facebook-square"></i></a></span>
-                        <span><a href="{{ url('login/custom/redirect/google') }}"><i class="fa fa-google-plus-square"></i></a></span>
-                    </div>
-                    <div class="form-group">
+                    <div id="_form_registrasi"></div>
+                    <!-- <div class="form-group">
                         <input type="submit" value="Register" class="btn float-right login_btn" >
-                    </div>
+                    </div> -->
                 </form>
             </div>
 

@@ -24,6 +24,11 @@ Route::post('/register/custom', [
   'as'    => 'register.custom'
 ]);
 
+Route::post('/update/profil', [
+  'uses'  => 'UsersController@update',
+  'as'    => 'update.profil'
+]);
+
 Route::get('/login/custom/redirect/{provider}', 'AuthController@redirect')
 ->where('social', 'facebook|google');
 
@@ -55,6 +60,10 @@ Route::group(['prefix'  => 'pages'], function(){
 
   Route::get('/category', [
     'uses'  => 'CategoryController@category'
+  ]);
+
+  Route::get('/profil', [
+    'uses'  => 'UsersController@index'
   ]);
 
   // Route::get('/product', [
