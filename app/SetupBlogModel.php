@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace GoyangPensil;
 use Illuminate\Database\Eloquent\Model;
 
 class SetupBlogModel extends Model{

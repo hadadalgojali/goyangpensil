@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        GoyangPensil\Providers\AppServiceProvider::class,
+        GoyangPensil\Providers\AuthServiceProvider::class,
+        // GoyangPensil\Providers\BroadcastServiceProvider::class,
+        GoyangPensil\Providers\EventServiceProvider::class,
+        GoyangPensil\Providers\RouteServiceProvider::class,
 
     ],
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace GoyangPensil;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,12 +13,12 @@ class GroupBlogImageModel extends Model
     // RELASI dari table GROUP_BLOG_IMAGE dengan referensi table BLOGS
     // belongsTo = Many To One
     function group_blog(){
-    	return $this->belongsTo('App\BlogsModel','id_blog');
+    	return $this->belongsTo('GoyangPensil\BlogsModel','id_blog');
   	}
 
     // RELASI dari table GROUP_BLOG_IMAGE dengan referensi table IMAGES
     // belongsTo = Many To One
   	function group_image(){
-    	return $this->belongsTo('App\ImageModel','id_image');
+    	return $this->belongsTo('GoyangPensil\ImageModel','id_image');
   	}
 }

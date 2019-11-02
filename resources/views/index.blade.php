@@ -1,6 +1,6 @@
 <html lang="{{ app()->getLocale() }}">
   <head>
-    <title>Goyang Pensil</title>
+    <title>{{ config('app.name', 'Goyang Pensil') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

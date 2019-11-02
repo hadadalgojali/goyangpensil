@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace GoyangPensil\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use GoyangPensil\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

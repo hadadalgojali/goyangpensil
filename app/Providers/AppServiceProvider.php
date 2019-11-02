@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace GoyangPensil\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

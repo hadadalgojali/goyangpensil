@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace GoyangPensil;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

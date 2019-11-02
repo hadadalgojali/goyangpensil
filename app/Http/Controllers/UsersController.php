@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace GoyangPensil\Http\Controllers;
 
 use Session;
 use Illuminate\Http\Request;
-use App\UsersModel;
+use GoyangPensil\UsersModel;
 
 class UsersController extends Controller{
     public function index(){

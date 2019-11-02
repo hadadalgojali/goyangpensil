@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace GoyangPensil;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +13,6 @@ class GroupPriceCategory extends Model
     // RELASI dari table GROUP_BLOG_IMAGE dengan referensi table BLOGS
     // belongsTo = Many To One
     function group_price_category(){
-    	return $this->belongsTo('App\CategoryModel','id_category');
+    	return $this->belongsTo('GoyangPensil\CategoryModel','id_category');
     }
 }

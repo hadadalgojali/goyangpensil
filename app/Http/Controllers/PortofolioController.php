@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace GoyangPensil\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\ImageModel;
+// use GoyangPensil\ImageModel;
 use Illuminate\Support\Facades\DB;
-use App\GroupBlogImageModel;
-use App\GroupCategoryImageModel;
-use App\CategoryModel;
-use App\GroupPriceCategory;
+use GoyangPensil\GroupBlogImageModel;
+use GoyangPensil\GroupCategoryImageModel;
+use GoyangPensil\CategoryModel;
+use GoyangPensil\GroupPriceCategory;
 
 class PortofolioController extends Controller{
     //

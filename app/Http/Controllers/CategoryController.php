@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace GoyangPensil\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\CategoryModel;
-use App\GroupCategoryImageModel;
+use GoyangPensil\CategoryModel;
+use GoyangPensil\GroupCategoryImageModel;
 
 class CategoryController extends Controller{
     //

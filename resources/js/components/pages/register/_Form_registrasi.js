@@ -15,10 +15,11 @@ export default class _Form_registrasi extends Component {
         this.state  = {
             loading         : false,
             load_password   : false,
+            load_button     : false,
             check_username  : false,
             check_password  : false,
             typingTimer     : '',
-            typingInterval  : 3000,
+            typingInterval  : 1000,
             btn_disable     : true,
         }
     }
@@ -30,7 +31,7 @@ export default class _Form_registrasi extends Component {
     onKeyDown_password(e){
         clearTimeout(this.state.typingTimer);
     }
-    
+
     onKeyUp_username(e){
         clearTimeout(this.state.typingTimer);
         this.setState({
@@ -68,10 +69,10 @@ export default class _Form_registrasi extends Component {
 
     onCheck_Username(e){
         this.setState({
-          loading : true,
+          loading     : true,
         });
         var txt_username = $("#txt_username").val();
-        if(txt_username.length > 4){
+        // if(txt_username.length > 4){
             fetch(url+"/json/auth/check_username", {
                 method: 'POST',
                 headers: {
@@ -98,18 +99,18 @@ export default class _Form_registrasi extends Component {
                         toaster.notify("Username tidak tersedia/ sudah ada");
                     }
                     this.setState({
-                        loading : false,
+                        loading     : false,
                     });
                     this.onActive_button();
                 }
             );
-        }else if(txt_username.length == 0){
-            this.setState({
-              loading : false,
-            });
-        }
+        // }else if(txt_username.length == 0){
+        //     this.setState({
+        //       loading : false,
+        //     });
+        // }
     }
-    
+
     onActive_button(){
         if(this.state.check_password === true && this.state.check_username === true){
             this.setState({
@@ -123,21 +124,39 @@ export default class _Form_registrasi extends Component {
     }
 
     onSave(e){
-        fetch(url+"register.custom", {
+      this.setState({
+        load_button : true,
+        btn_disable : true,
+      });
+        fetch(url+"/json/auth/register", {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': csrf_token
             },
-            body : {
+            body : JSON.stringify({
                 username : $("#txt_username").val(),
                 password : $("#txt_password").val(),
-            }
+            }),
         })
         .then(res => res.json())
         .then(
             (result) => {
+              if (result.code == 200 ) {
+                if (result.login === true ) {
+                  window.location = url;
+                }else{
+                  window.location = url+"/login";
+                }
+              }else{
+                toaster.notify(result.message);
+              }
+
+              this.setState({
+                load_button : false,
+                btn_disable : false,
+              });
             }
         );
     }
@@ -145,35 +164,31 @@ export default class _Form_registrasi extends Component {
     render() {
         return (
           <div>
-            <div className="input-group form-group">
-                <div className="input-group-prepend">
-                    <span className="input-group-text">
-                        { this.state.loading == true && <i className="loader"></i> }
-                        { this.state.loading == false && <i className="fa fa-user"></i> }
-                    </span>
-                </div>
-                <input type="text" className="form-control" placeholder="Username" id="txt_username" name="username" onKeyUp={this.onKeyUp_username.bind(this)} onKeyDown={this.onKeyDown_username.bind(this)}/>
+            <div className="wrap-input100 validate-input" data-validate = "Valid username is required">
+              <input className="input100" type="text" id="txt_username" name="username" placeholder="Username"  onKeyUp={this.onKeyUp_username.bind(this)} onKeyDown={this.onKeyDown_username.bind(this)}/>
+              <span className="focus-input100"></span>
+              <span className="symbol-input100">
+                  { this.state.loading == true && <i className="loader"></i> }
+                  { this.state.loading == false && <i className="fa fa-user"></i> }
+              </span>
             </div>
-            <div className="input-group form-group">
-                <div className="input-group-prepend">
-                    <span className="input-group-text">
-                        <i className="fa fa-key"></i>
-                    </span>
-                </div>
-                <input type="password" className="form-control" placeholder="Password" id="txt_password" name="password" />
+            <div className="wrap-input100 validate-input" data-validate = "Valid password is required">
+              <input className="input100" type="password" id="txt_password" name="password" placeholder="Password" />
+              <span className="focus-input100"></span>
+              <span className="symbol-input100">
+                <i className="fa fa-key" aria-hidden="true"></i>
+              </span>
             </div>
-            <div className="input-group form-group">
-                <div className="input-group-prepend">
-                    <span className="input-group-text">
-                        { this.state.load_password == true && <i className="loader"></i> }
-                        { this.state.load_password == false && <i className="fa fa-key"></i> }
-                    </span>
-                </div>
-                <input type="password" className="form-control" placeholder="Retype Password" id="txt_re_password" name="password"  onKeyUp={this.onKeyUp_password.bind(this)} onKeyDown={this.onKeyDown_password.bind(this)}/>
+            <div className="wrap-input100 validate-input" data-validate = "Valid re password have same">
+              <input className="input100" type="password" id="txt_re_password" name="txt_re_password" placeholder="Retype Password" onKeyUp={this.onKeyUp_password.bind(this)} onKeyDown={this.onKeyDown_password.bind(this)}/>
+              <span className="focus-input100"></span>
+              <span className="symbol-input100">
+                  { this.state.load_password == true && <i className="loader"></i> }
+                  { this.state.load_password == false && <i className="fa fa-key"></i> }
+              </span>
             </div>
-            
-            <div className="input-group form-group">
-                <Button  disabled={this.state.btn_disable} style={button_right} type="submit" className="btn login_btn" onClick={this.onSave.bind(this)}>Register</Button>
+            <div className="container-login100-form-btn">
+              <Button disabled={this.state.btn_disable} className="login100-form-btn" onClick={this.onSave.bind(this)}> { this.state.load_button == true && <i className="loader"></i> } Register</Button>
             </div>
           </div>
         );

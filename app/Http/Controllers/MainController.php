@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace GoyangPensil\Http\Controllers;
 
 use Session;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\CategoryModel;
-use App\BlogsModel;
+use GoyangPensil\CategoryModel;
+use GoyangPensil\BlogsModel;
 
 class MainController extends Controller{
     /**

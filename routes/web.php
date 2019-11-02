@@ -76,6 +76,8 @@ Route::group(['prefix'  => 'json'], function(){
     Route::post('/image/blog', 'BlogsController@get_images');
     Route::post('/image/category', 'CategoryController@get_images');
     Route::post('/auth/check_username', 'AuthController@check_username');
+    Route::post('/auth/login', 'AuthController@check_login');
+    Route::post('/auth/register', 'AuthController@check_register');
 });
 
 Auth::routes();

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace GoyangPensil\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\BlogsModel;
-use App\GroupBlogImageModel;
-use App\GroupBlogCategoryModel;
-use App\PackageModel;
+use GoyangPensil\BlogsModel;
+use GoyangPensil\GroupBlogImageModel;
+use GoyangPensil\GroupBlogCategoryModel;
+use GoyangPensil\PackageModel;
 
 class BlogsController extends Controller{
     //

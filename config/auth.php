@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\AuthModel::class,
+            'model' => GoyangPensil\AuthModel::class,
         ],
 
         // 'auth' => [

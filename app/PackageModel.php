@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace GoyangPensil;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class PackageModel extends Model{
     // RELASI dari table PACKAGE dengan referensi table BLOGS
     // belongsTo = Many To One
     function group_blog(){
-        return $this->belongsTo('App\BlogsModel','id_blog');
+        return $this->belongsTo('GoyangPensil\BlogsModel','id_blog');
     }
 }

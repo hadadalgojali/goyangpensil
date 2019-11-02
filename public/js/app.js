@@ -88949,11 +88949,9 @@ __webpack_require__(/*! ./components/layout_/_Footer */ "./resources/js/componen
 
 __webpack_require__(/*! ./components/layout_/_Bottom */ "./resources/js/components/layout_/_Bottom.js");
 
-__webpack_require__(/*! ./components/pages/register/_CMP_username_reg */ "./resources/js/components/pages/register/_CMP_username_reg.js");
-
-__webpack_require__(/*! ./components/pages/register/_CMP_password_reg */ "./resources/js/components/pages/register/_CMP_password_reg.js");
-
 __webpack_require__(/*! ./components/pages/register/_Form_registrasi */ "./resources/js/components/pages/register/_Form_registrasi.js");
+
+__webpack_require__(/*! ./components/pages/login/_Form_login */ "./resources/js/components/pages/login/_Form_login.js");
 
 __webpack_require__(/*! ./components/pages/profil/_Form_profil */ "./resources/js/components/pages/profil/_Form_profil.js");
 
@@ -89998,6 +89996,165 @@ if (document.getElementById('cmp_dashboard_me')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/pages/login/_Form_login.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/pages/login/_Form_login.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Form_login; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var toasted_notes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! toasted-notes */ "./node_modules/toasted-notes/lib/index.js");
+/* harmony import */ var toasted_notes_src_styles_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! toasted-notes/src/styles.css */ "./node_modules/toasted-notes/src/styles.css");
+/* harmony import */ var toasted_notes_src_styles_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(toasted_notes_src_styles_css__WEBPACK_IMPORTED_MODULE_4__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+ // optional styles
+
+var url,
+    csrf_token = "";
+var button_right = {
+  "float": "right"
+};
+
+var _Form_login =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(_Form_login, _Component);
+
+  function _Form_login(props) {
+    var _this;
+
+    _classCallCheck(this, _Form_login);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(_Form_login).call(this, props));
+    csrf_token = reactInit.csrf_token;
+    url = reactInit.url;
+    _this.state = {
+      loading: false,
+      btn_disable: false
+    };
+    return _this;
+  }
+
+  _createClass(_Form_login, [{
+    key: "onLogin",
+    value: function onLogin(e) {
+      var _this2 = this;
+
+      this.setState({
+        btn_disable: true
+      });
+      fetch(url + "/json/auth/login", {
+        method: 'POST',
+        dataType: 'json',
+        encode: true,
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': csrf_token
+        },
+        body: JSON.stringify({
+          username: $("#txt_username").val(),
+          password: $("#txt_password").val()
+        })
+      }).then(function (res) {
+        return res.json();
+      }).then(function (result) {
+        if (result.code == 200) {
+          window.location = url;
+        } else {
+          toasted_notes__WEBPACK_IMPORTED_MODULE_3__["default"].notify("Cek kembali username dan password anda");
+        }
+
+        _this2.setState({
+          btn_disable: false
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrap-input100 validate-input",
+        "data-validate": "Valid username is required"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "input100",
+        type: "text",
+        id: "txt_username",
+        name: "username",
+        placeholder: "Username"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "focus-input100"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "symbol-input100"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-user",
+        "aria-hidden": "true"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrap-input100 validate-input",
+        "data-validate": "Password is required"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "input100",
+        type: "password",
+        id: "txt_password",
+        name: "password",
+        placeholder: "Password"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "focus-input100"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "symbol-input100"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-lock",
+        "aria-hidden": "true"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container-login100-form-btn"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        disabled: this.state.btn_disable,
+        className: "login100-form-btn",
+        onClick: this.onLogin.bind(this)
+      }, "Login")));
+    }
+  }]);
+
+  return _Form_login;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+if (document.getElementById('_form_login')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Form_login, null), document.getElementById('_form_login'));
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/pages/profil/_Form_profil.js":
 /*!**************************************************************!*\
   !*** ./resources/js/components/pages/profil/_Form_profil.js ***!
@@ -90368,281 +90525,6 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/register/_CMP_password_reg.js":
-/*!*********************************************************************!*\
-  !*** ./resources/js/components/pages/register/_CMP_password_reg.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _CMP_password_reg; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var toasted_notes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! toasted-notes */ "./node_modules/toasted-notes/lib/index.js");
-/* harmony import */ var toasted_notes_src_styles_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! toasted-notes/src/styles.css */ "./node_modules/toasted-notes/src/styles.css");
-/* harmony import */ var toasted_notes_src_styles_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(toasted_notes_src_styles_css__WEBPACK_IMPORTED_MODULE_3__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
- // optional styles
-
-var url,
-    csrf_token = "";
-
-var _CMP_password_reg =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(_CMP_password_reg, _Component);
-
-  function _CMP_password_reg(props) {
-    var _this;
-
-    _classCallCheck(this, _CMP_password_reg);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(_CMP_password_reg).call(this, props));
-    csrf_token = reactInit.csrf_token;
-    url = reactInit.url;
-    _this.state = {
-      loading: false,
-      check: false
-    };
-    return _this;
-  }
-
-  _createClass(_CMP_password_reg, [{
-    key: "onActive",
-    value: function onActive(e) {
-      this.setState({
-        loading: true
-      });
-      var txt_password = $("#txt_password").val();
-      var txt_password_re = $("#txt_password_re").val();
-
-      if (txt_password_re.length >= txt_password.length) {
-        if (txt_password !== txt_password_re) {
-          toasted_notes__WEBPACK_IMPORTED_MODULE_2__["default"].notify("Password tidak sama");
-        }
-      } // console.log($("#txt_username").val());
-
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group-prepend"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "input-group-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-key"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "password",
-        className: "form-control",
-        id: "txt_password",
-        placeholder: "Password",
-        name: "password"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group-prepend"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "input-group-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-key"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "password",
-        className: "form-control",
-        id: "txt_password_re",
-        placeholder: "Re-type Password",
-        name: "re_password",
-        onKeyUp: this.onActive.bind(this)
-      })));
-    }
-  }]);
-
-  return _CMP_password_reg;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-
-if (document.getElementById('_cmp_password_reg')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CMP_password_reg, null), document.getElementById('_cmp_password_reg'));
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/register/_CMP_username_reg.js":
-/*!*********************************************************************!*\
-  !*** ./resources/js/components/pages/register/_CMP_username_reg.js ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _CMP_username_reg; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var toasted_notes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! toasted-notes */ "./node_modules/toasted-notes/lib/index.js");
-/* harmony import */ var toasted_notes_src_styles_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! toasted-notes/src/styles.css */ "./node_modules/toasted-notes/src/styles.css");
-/* harmony import */ var toasted_notes_src_styles_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(toasted_notes_src_styles_css__WEBPACK_IMPORTED_MODULE_3__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
- // optional styles
-
-var url,
-    csrf_token = "";
-
-var _CMP_username_reg =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(_CMP_username_reg, _Component);
-
-  function _CMP_username_reg(props) {
-    var _this;
-
-    _classCallCheck(this, _CMP_username_reg);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(_CMP_username_reg).call(this, props));
-    csrf_token = reactInit.csrf_token;
-    url = reactInit.url;
-    _this.state = {
-      loading: false,
-      check: false
-    };
-    return _this;
-  }
-
-  _createClass(_CMP_username_reg, [{
-    key: "onActive",
-    value: function onActive(e) {
-      var _this2 = this;
-
-      this.setState({
-        loading: true
-      });
-      var txt_username = $("#txt_username").val();
-
-      if (txt_username.length > 4) {
-        fetch(url + "/json/auth/check_username", {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': csrf_token
-          },
-          body: JSON.stringify({
-            username: txt_username
-          })
-        }).then(function (res) {
-          return res.json();
-        }).then(function (result) {
-          if (result.status === true) {
-            _this2.setState({
-              check: true
-            });
-
-            toasted_notes__WEBPACK_IMPORTED_MODULE_2__["default"].notify("Username tersedia");
-          } else {
-            _this2.setState({
-              check: false
-            });
-
-            toasted_notes__WEBPACK_IMPORTED_MODULE_2__["default"].notify("Username tidak tersedia/ sudah ada");
-          }
-
-          _this2.setState({
-            loading: false
-          });
-        });
-      } else if (txt_username.length == 0) {
-        this.setState({
-          loading: false
-        });
-      } // console.log($("#txt_username").val());
-
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group-prepend"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "input-group-text"
-      }, this.state.loading == true && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "loader"
-      }), this.state.loading == false && this.state.check == false && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-user"
-      }), this.state.loading == false && this.state.check == true && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-check"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "form-control",
-        placeholder: "Username",
-        id: "txt_username",
-        name: "username",
-        onKeyUp: this.onActive.bind(this)
-      })));
-    }
-  }]);
-
-  return _CMP_username_reg;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-
-if (document.getElementById('_cmp_username_reg')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CMP_username_reg, null), document.getElementById('_cmp_username_reg'));
-}
-
-/***/ }),
-
 /***/ "./resources/js/components/pages/register/_Form_registrasi.js":
 /*!********************************************************************!*\
   !*** ./resources/js/components/pages/register/_Form_registrasi.js ***!
@@ -90707,10 +90589,11 @@ function (_Component) {
     _this.state = {
       loading: false,
       load_password: false,
+      load_button: false,
       check_username: false,
       check_password: false,
       typingTimer: '',
-      typingInterval: 3000,
+      typingInterval: 1000,
       btn_disable: true
     };
     return _this;
@@ -90773,47 +90656,45 @@ function (_Component) {
       this.setState({
         loading: true
       });
-      var txt_username = $("#txt_username").val();
+      var txt_username = $("#txt_username").val(); // if(txt_username.length > 4){
 
-      if (txt_username.length > 4) {
-        fetch(url + "/json/auth/check_username", {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': csrf_token
-          },
-          body: JSON.stringify({
-            username: txt_username
-          })
-        }).then(function (res) {
-          return res.json();
-        }).then(function (result) {
-          if (result.status === true) {
-            _this2.setState({
-              check_username: true
-            });
-
-            toasted_notes__WEBPACK_IMPORTED_MODULE_3__["default"].notify("Username tersedia");
-          } else {
-            _this2.setState({
-              check_username: false
-            });
-
-            toasted_notes__WEBPACK_IMPORTED_MODULE_3__["default"].notify("Username tidak tersedia/ sudah ada");
-          }
-
+      fetch(url + "/json/auth/check_username", {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': csrf_token
+        },
+        body: JSON.stringify({
+          username: txt_username
+        })
+      }).then(function (res) {
+        return res.json();
+      }).then(function (result) {
+        if (result.status === true) {
           _this2.setState({
-            loading: false
+            check_username: true
           });
 
-          _this2.onActive_button();
-        });
-      } else if (txt_username.length == 0) {
-        this.setState({
+          toasted_notes__WEBPACK_IMPORTED_MODULE_3__["default"].notify("Username tersedia");
+        } else {
+          _this2.setState({
+            check_username: false
+          });
+
+          toasted_notes__WEBPACK_IMPORTED_MODULE_3__["default"].notify("Username tidak tersedia/ sudah ada");
+        }
+
+        _this2.setState({
           loading: false
         });
-      }
+
+        _this2.onActive_button();
+      }); // }else if(txt_username.length == 0){
+      //     this.setState({
+      //       loading : false,
+      //     });
+      // }
     }
   }, {
     key: "onActive_button",
@@ -90831,83 +90712,108 @@ function (_Component) {
   }, {
     key: "onSave",
     value: function onSave(e) {
-      fetch(url + "register.custom", {
+      var _this3 = this;
+
+      this.setState({
+        load_button: true,
+        btn_disable: true
+      });
+      fetch(url + "/json/auth/register", {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'X-CSRF-TOKEN': csrf_token
         },
-        body: {
+        body: JSON.stringify({
           username: $("#txt_username").val(),
           password: $("#txt_password").val()
-        }
+        })
       }).then(function (res) {
         return res.json();
-      }).then(function (result) {});
+      }).then(function (result) {
+        if (result.code == 200) {
+          if (result.login === true) {
+            window.location = url;
+          } else {
+            window.location = url + "/login";
+          }
+        } else {
+          toasted_notes__WEBPACK_IMPORTED_MODULE_3__["default"].notify(result.message);
+        }
+
+        _this3.setState({
+          load_button: false,
+          btn_disable: false
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group-prepend"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "input-group-text"
+        className: "wrap-input100 validate-input",
+        "data-validate": "Valid username is required"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "input100",
+        type: "text",
+        id: "txt_username",
+        name: "username",
+        placeholder: "Username",
+        onKeyUp: this.onKeyUp_username.bind(this),
+        onKeyDown: this.onKeyDown_username.bind(this)
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "focus-input100"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "symbol-input100"
       }, this.state.loading == true && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "loader"
       }), this.state.loading == false && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-user"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "form-control",
-        placeholder: "Username",
-        id: "txt_username",
-        name: "username",
-        onKeyUp: this.onKeyUp_username.bind(this),
-        onKeyDown: this.onKeyDown_username.bind(this)
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group-prepend"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "input-group-text"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fa fa-key"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrap-input100 validate-input",
+        "data-validate": "Valid password is required"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "input100",
         type: "password",
-        className: "form-control",
-        placeholder: "Password",
         id: "txt_password",
-        name: "password"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group-prepend"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "input-group-text"
+        name: "password",
+        placeholder: "Password"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "focus-input100"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "symbol-input100"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-key",
+        "aria-hidden": "true"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrap-input100 validate-input",
+        "data-validate": "Valid re password have same"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "input100",
+        type: "password",
+        id: "txt_re_password",
+        name: "txt_re_password",
+        placeholder: "Retype Password",
+        onKeyUp: this.onKeyUp_password.bind(this),
+        onKeyDown: this.onKeyDown_password.bind(this)
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "focus-input100"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "symbol-input100"
       }, this.state.load_password == true && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "loader"
       }), this.state.load_password == false && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-key"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "password",
-        className: "form-control",
-        placeholder: "Retype Password",
-        id: "txt_re_password",
-        name: "password",
-        onKeyUp: this.onKeyUp_password.bind(this),
-        onKeyDown: this.onKeyDown_password.bind(this)
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-group form-group"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container-login100-form-btn"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         disabled: this.state.btn_disable,
-        style: button_right,
-        type: "submit",
-        className: "btn login_btn",
+        className: "login100-form-btn",
         onClick: this.onSave.bind(this)
-      }, "Register")));
+      }, " ", this.state.load_button == true && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "loader"
+      }), " Register")));
     }
   }]);
 

@@ -40,49 +40,42 @@
   background: transparent;
 }
 </style>
-<div class="container">
+<!-- <div class="container"> -->
     <!-- <div class="d-flex justify-content-center" style="">
-        <div class="alert alert-primary" role="alert" >A simple primary alert—check it out!</div> 
+        <div class="alert alert-primary" role="alert" >A simple primary alert—check it out!</div>
     </div> -->
-    
+
     <script>
         window.reactInit = {
             url    : "{{URL::to('/')}}",
             csrf_token: "{{csrf_token()}}",
         };
     </script>
-    <div class="d-flex justify-content-center h-100">
-        <div class="card"> 
-            <div class="card-header">
-                <h4>{{ __('Register') }}</h4>
-                <div class="d-flex justify-content-end social_icon">
-                <span><a  style="color:white;" href="{{ url('login/custom/redirect/facebook') }}"><i class="fa fa-facebook-square"></i></a></span>
-                <span><a  style="color:white;" href="{{ url('login/custom/redirect/google') }}"><i class="fa fa-google-plus-square"></i></a></span>
-                </div>
-            </div>
-                
-            <!-- <div class="social_icon-tab">
-                <span><a href="{{ url('login/custom/redirect/facebook') }}"><i class="fa fa-facebook-square"></i></a></span>
-                <span><a href="{{ url('login/custom/redirect/google') }}"><i class="fa fa-google-plus-square"></i></a></span>
-            </div> -->
 
-            <div class="card-body">
-                <form method="POST" action="{{ route('register.custom') }}">
-                    @csrf
-                    <div id="_form_registrasi"></div>
-                    <!-- <div class="form-group">
-                        <input type="submit" value="Register" class="btn float-right login_btn" >
-                    </div> -->
-                </form>
-            </div>
-
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    Have an account?<a href="/login">Login</a>
-                </div>
-            </div>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-pic js-tilt" data-tilt>
+          <img src="{{asset('assets/images/img-auth.png')}}" alt="IMG">
         </div>
+
+        <form class="login100-form validate-form">
+          <span class="login100-form-title">
+            <h4>{{ __('Register') }}</h4>
+          </span>
+
+          <div id="_form_registrasi"></div>
+
+          <div class="text-center p-t-136">
+            <a class="txt2" href="/login">
+              Login your account
+              <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+            </a>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
+<!-- </div> -->
 
 @endsection

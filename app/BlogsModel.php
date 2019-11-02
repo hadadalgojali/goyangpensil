@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace GoyangPensil;
 use Illuminate\Database\Eloquent\Model;
 
 class BlogsModel extends Model{
@@ -10,14 +10,14 @@ class BlogsModel extends Model{
     // RELASI dari table BLOGS dengan referensi table GROUP_BLOG_IMAGE
     // Jenis Relasi = One To Many
   	function group_image(){
-    	return $this->hasMany('App\GroupBlogImageModel','id_blog');
+    	return $this->hasMany('GoyangPensil\GroupBlogImageModel','id_blog');
   	}
 
     public function blog_by_user(){
-        return $this->belongsTo('App\UsersModel', 'id_user');
+        return $this->belongsTo('GoyangPensil\UsersModel', 'id_user');
     }
 
     public function cover_blog(){
-        return $this->hasMany('App\SetupBlogModel', 'id_blog');
+        return $this->hasMany('GoyangPensil\SetupBlogModel', 'id_blog');
     }
 }
