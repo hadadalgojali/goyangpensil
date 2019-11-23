@@ -71,22 +71,23 @@
             <a href="{{URL::to('/')}}/{{$_link}}"><span class="badge badge-info"><font style="font-family:calibri;">{{ $row->with_category->category }}</font></span></a>
           @endforeach
         </small>
-        <?php 
-          // var_dump($package);
-        ?>
-      </div>
-      <div style="position:absolute;bottom:0;right:0;">
-        @if(count($package) > 0)
-          Daftar harga : 
-        @endif
-        @foreach($package as $result)
-          <!-- <button class="btn btn-primary btn-sm">{{ $result->title }}</button> -->
-          <div class="_modal_package"></div>
-        @endforeach
+        <hr>
+        <div style="bottom:0;right:0;float:right;">
+          @if(count($package) > 0)
+            Daftar harga :
+            <br>
+            @foreach($package as $result)
+            <!-- <button class="btn btn-primary btn-sm">{{ $result->title }}</button> -->
+            <!-- <div class="_modal_package"></div> -->
+              <button class="btn btn-primary btn-sm" onclick="get_price('{{ $result->id }}');">{{ $result->title }}</button>
+            @endforeach
+          @endif
+        </div>
       </div>
     </div>
   </div>
   <script>
+      var tmp_id_package = "";
       window.reactInit = {
           url    : "{{URL::to('/')}}",
           id_blog: "<?php echo $id; ?>",
@@ -114,5 +115,73 @@
     </div>
   </div>
   @endif
+
+  <!--  MODAL -->
+  <div class="modal" tabindex="-1" role="dialog" id="PriceModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Rincian harga</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="padding:0px;margin:0px;">
+          <div id="PriceBody"></div>
+        </div>
+        <div class="modal-footer">
+          <button id="btn_message_send" style="display:none;" type="button" onclick="send_message();" class="btn btn-primary">Pesan</button>
+          <button id="btn_message_form" type="button" onclick="get_message();" class="btn btn-primary">Pesan</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
+
+<script type="text/javascript">
+  function send_message(){
+    var url = "https://wa.me/"+"<?php echo substr($company->phone, 1); ?>"
+    // console.log($("#form_message")[0][0].value);
+    window.location.href = url+"?text="+$("#form_message")[0][2].value+", "+$("#form_message")[0][0].value+" ("+$("#form_message")[0][1].value+")";
+  }
+
+  function get_message(){
+    $('#PriceBody').html('<i style="margin:10px;" align="center" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>');
+    $.ajax({
+        url: "{{URL::to('/')}}/pages/product/message",
+        type: "post",
+        data: {
+          id : tmp_id_package,
+        },
+        headers: {
+          'X-CSRF-TOKEN': "{{csrf_token()}}"
+        },
+        success : function(res){
+          document.getElementById('btn_message_form').style.display = 'none';
+          document.getElementById('btn_message_send').style.display = '';
+          $('#PriceBody').html(res);
+        }
+    });
+  }
+
+  function get_price(id){
+    tmp_id_package = id;
+    $('#PriceBody').html('<i style="margin:10px;" align="center" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>');
+    $.ajax({
+        url: "{{URL::to('/')}}/pages/product/price",
+        type: "post",
+        data: {
+          id : id,
+        },
+        headers: {
+          'X-CSRF-TOKEN': "{{csrf_token()}}"
+        },
+        success : function(res){
+          $('#PriceBody').html(res);
+        }
+    });
+    $('#PriceModal').modal('show');
+  }
+</script>
 <!-- </div> -->

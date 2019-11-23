@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 var isShow = false;
 
 class _Header extends Component {
-  
+
     render() {
     // const [show, setShow] = useState(false);
 
@@ -46,7 +46,7 @@ class _Header extends Component {
                           {sess_id.length > 0 &&
                             <li className="has-children">
                               <a href="#">Option</a>
-                              <ul className="dropdown" style={{ marginLeft:"-50px"}}>
+                              <ul className="dropdown">
                                 <li><a href="/pages/profil">Profilku</a></li>
                                 <li><a href="/pages/category">Projectku</a></li>
                                 <li><a href="/logout">Logout</a></li>

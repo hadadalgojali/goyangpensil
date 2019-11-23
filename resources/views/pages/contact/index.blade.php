@@ -22,7 +22,7 @@
       <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
         <div class="row justify-content-center mt-5">
           <div class="col-md-8 text-center">
-            <h1>kontak kami</h1>
+            <h1>Kontak kami</h1>
           </div>
         </div>
       </div>
@@ -45,21 +45,6 @@
                   <input type="text" id="lname" class="form-control">
                 </div>
               </div>
-
-              <!-- <div class="row form-group">
-
-                <div class="col-md-12">
-                  <label class="text-black" for="email">Email</label>
-                  <input type="email" id="email" class="form-control">
-                </div>
-              </div> -->
-
-              <!-- <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Subject</label>
-                  <input type="subject" id="subject" class="form-control">
-                </div>
-              </div> -->
 
               <div class="row form-group">
                 <div class="col-md-12">

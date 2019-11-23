@@ -54,6 +54,9 @@ Route::group(['prefix'  => 'pages'], function(){
     'uses'  => 'BlogsController@product'
   ]);
 
+  Route::post('/product/price', 'BlogsController@get_price');
+  Route::post('/product/message', 'BlogsController@get_message');
+
   Route::get('/category/{id}', [
     'uses'  => 'CategoryController@category'
   ]);

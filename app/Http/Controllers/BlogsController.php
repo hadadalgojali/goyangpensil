@@ -7,10 +7,13 @@ use GoyangPensil\BlogsModel;
 use GoyangPensil\GroupBlogImageModel;
 use GoyangPensil\GroupBlogCategoryModel;
 use GoyangPensil\PackageModel;
+use GoyangPensil\PackageListModel;
 
 class BlogsController extends Controller{
     //
     public function product($id = null){
+        $xmlFile = file_get_contents(storage_path('app/public/company.xml'));
+        $xml = new \SimpleXMLElement($xmlFile);
         $title    = "Daftar Produk";
         $result   = true;
         $category = array();
@@ -61,6 +64,7 @@ class BlogsController extends Controller{
           'category'    => $category,
           'title'       => $title,
           'package'     => $package,
+          'company'     => $xml,
         ]);
     }
 
@@ -72,5 +76,31 @@ class BlogsController extends Controller{
         'portofolio'=> $prtofolio,
         'count'     => count($prtofolio),
       ));
+    }
+
+    public function get_price(Request $request){
+      $count= 0;
+      $data = PackageListModel::with('group_package')->where('id_package', $request->post('id'))->get();
+      if ($data->count() > 0) {
+        $count = $data->count();
+      }
+
+      return view('pages/product-list/price', [
+        'count'         => $count,
+        'data'          => $data,
+      ]);
+    }
+
+    public function get_message(Request $request){
+      $count= 0;
+      $data = PackageModel::where('id', $request->post('id'))->get();
+      if ($data->count() > 0) {
+        $count = $data->count();
+      }
+
+      return view('pages/product-list/message', [
+        'count'         => $count,
+        'data'          => $data,
+      ]);
     }
 }
