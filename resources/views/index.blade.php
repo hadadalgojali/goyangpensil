@@ -4,7 +4,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="google-site-verification" content="google-site-verification=x8uVlWXumktgLaF8RtpGA6KrXV5AIbZNOC4aD4hLE4I">
+    <meta name="google-site-verification" content="google-site-verification=iYQdWcI8yqJbeaFwdFhTzw9ug5G26p1G17XNjT7hvvI">
     <link rel="stylesheet" href="{{asset('assets/template/public/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/template/public/fonts/icomoon/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/template/public/css/magnific-popup.css')}}">
